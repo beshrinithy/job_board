@@ -1,31 +1,20 @@
-import Link from 'next/link'
-import styles from './page.module.css'
-import { getJobs } from '../db/data-store';
+import JobCard from './components/JobCard';
+import { getJobs } from './db/data-store';
+import styles from './styles/Home.module.css';
 
 export default async function Home() {
   const jobs = await getJobs();
-
+  
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Job Board
-        </h1>
-        <div>
-          {jobs.map((job) => (
-            <div key={job.slug}>
-              <div>
-                <div><b>{job.title}</b></div>
-                <div>{job.description}</div>
-              </div>
-              <div>
-                <Link href={`jobs/${job.slug}`}>View Job</Link>
-              </div>
-              <hr/>
-            </div>
-          ))}
-        </div>
-      </main>
+      <h1>Job Listings</h1>
+      <div className={styles.jobList}>
+        {jobs.map(job => (
+          <JobCard key={job.id} job={job} />
+        ))}
+      </div>
     </div>
-  )
+  );
 }
+
+

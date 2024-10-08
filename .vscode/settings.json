@@ -1,4 +1,44 @@
 {
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "netbeans.jdkhome": "c:\\Program Files\\Microsoft\\jdk-17.0.11.9-hotspot",
+  "netbeans.project.jdkhome": "c:\\Program Files\\Microsoft\\jdk-17.0.11.9-hotspot",
+  "java.jdt.ls.java.home": "c:\\Program Files\\Microsoft\\jdk-17.0.11.9-hotspot",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-1.8",
+      "path": "C:\\Users\\shrin\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\8"
+    },
+    {
+      "name": "JavaSE-11",
+      "path": "C:\\Users\\shrin\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\11"
+    },
+    {
+      "name": "JavaSE-17",
+      "path": "c:\\Program Files\\Microsoft\\jdk-17.0.11.9-hotspot",
+      "default": true
+    },
+    {
+      "name": "JavaSE-21",
+      "path": "C:\\Users\\shrin\\Downloads\\jdk-21_windows-x64_bin (1)\\jdk-21.0.1"
+    },
+    {
+      "name": "JavaSE-22",
+      "path": "C:\\Program Files\\Java\\jdk-22"
+    },
+    {
+      "name": "JavaSE-23",
+      "path": "C:\\Users\\shrin\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\latest"
+    }
+  ],
+  "terminal.integrated.env.windows": {
+    "PATH": "c:\\Program Files\\Microsoft\\jdk-17.0.11.9-hotspot\\bin;${env:PATH}",
+    "JAVA_HOME": "c:\\Program Files\\Microsoft\\jdk-17.0.11.9-hotspot"
+  },
+  "maven.terminal.customEnv": [
+    {
+      "environmentVariable": "JAVA_HOME",
+      "value": "c:\\Program Files\\Microsoft\\jdk-17.0.11.9-hotspot"
+    }
+  ]
 }

@@ -1,35 +1,26 @@
-import Link from 'next/link'
-import styles from '../../page.module.css'
-import { getJobs } from '../../../db/data-store';
+'use client';  // This line tells Next.js that this is a Client Component
 
-interface Props {
-  params: {
-    slug: string
-  }
-}
+import { useEffect, useState } from 'react';
 
-export async function generateStaticParams() {
-  const jobs = await getJobs();
+export default function JobDetail({ params }) {
+  const [job, setJob] = useState(null);
 
-  return jobs.map((job) => ({
-    slug: job.slug,
-  }));
-}
+  useEffect(() => {
+    async function fetchJob() {
+      const res = await fetch(`/api/jobs/${params.slug}`);
+      const data = await res.json();
+      setJob(data);
+    }
+    
+    fetchJob();
+  }, [params.slug]);
 
-export default async function Job({ params }: Props) {
-  const [job] = await getJobs(params.slug);
+  if (!job) return <p>Loading...</p>;
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          {job.title}
-        </h1>
-        <div style={{ marginBottom: '50px'}}>
-          {job.description}
-        </div>
-        <Link href={'/'}>Go Back</Link>
-      </main>
+    <div>
+      <h1>{job.title}</h1>
+      <p>{job.description}</p>
     </div>
-  )
+  );
 }
